@@ -171,5 +171,5 @@ class ChangePackageLot(Component):
         restricts the reservation based on the previous move(s).
         """
         return move_lines.filtered(
-            lambda l: (l.product_id == lot.product_id and not l.move_id.move_orig_ids)
+            lambda x: (x.product_id == lot.product_id and not x.move_id.move_orig_ids)
         )
