@@ -1140,8 +1140,8 @@ class ZonePicking(Component):
         When the barcode is the product (or its packaging) or the lot on the line:
             * The done quantity is incremented by one or the packaging quantity.
 
-        The `handle_complete_mix_pack` option, when it is set to true. Will move all they
-        lines contained in the package of the move line passed in parameter.
+        The `handle_complete_mix_pack` option, when it is set to true,
+        will move all lines contained in the package of the move line given.
 
         Transitions:
         * select_line: destination has been set, showing the next lines to pick
@@ -1229,7 +1229,7 @@ class ZonePicking(Component):
                 and move_line.result_package_id
                 and move_line.result_package_id != package
             ):
-                # Check whether the user can move a whole package to a different package.
+                # Check whether the user can move a whole package to a different one.
                 message = self.msg_store.package_transfer_not_allowed_scan_location()
                 return self._response_for_set_line_destination(
                     move_line, message=message, qty_done=quantity
