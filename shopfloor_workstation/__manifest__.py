@@ -12,6 +12,7 @@
     "license": "AGPL-3",
     "application": False,
     "depends": ["shopfloor_base", "base_report_to_printer"],
+    "maintainers": ["TDu"],
     "demo": ["demo/shopfloor_workstation_demo.xml"],
     "data": ["security/ir.model.access.csv", "views/shopfloor_workstation.xml"],
 }
