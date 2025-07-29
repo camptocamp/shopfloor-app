@@ -367,3 +367,10 @@ class ShopfloorApp(models.Model):
             return
         if self.lang_ids and self.lang_id and self.lang_id not in self.lang_ids:
             self.with_context(from_onchange__lang_ids=1).lang_id = False
+
+    def check_access(self, operation):  # pylint: disable=missing-return
+        # ir.http._pre_dispatch will check for READ access on the record
+        # we'll use this ctx to bypass the check when using the tech_name converter.
+        # See models.ir_http.TechNameConverter.to_python.
+        if not self.env.context.get("shopfloor_app_contoller"):
+            super().check_access(operation)

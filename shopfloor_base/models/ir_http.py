@@ -28,7 +28,10 @@ class TechNameConverter(werkzeug.routing.BaseConverter):
         # Then browse the record w/ proper environment (as per ModelConverter)
         _uid = RequestUID(value=value, converter=self)
         env = api.Environment(request.cr, _uid, request.context)
-        return env[self.model].browse(query)
+        # ir.http._pre_dispatch will check for READ access on the record
+        # we'll use this ctx to bypass the check when using this converter.
+        # See models.shopfloor_app.ShopfloorApp.check_access()
+        return env[self.model].browse(query).with_context(shopfloor_app_contoller=True)
 
     def to_url(self, value):
         return value.tech_name
