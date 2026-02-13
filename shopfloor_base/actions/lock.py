@@ -4,8 +4,9 @@
 import hashlib
 import struct
 
-from odoo.addons.component.core import Component
 from odoo.tools import str2bool
+
+from odoo.addons.component.core import Component
 
 
 class LockAction(Component):
@@ -39,8 +40,16 @@ class LockAction(Component):
         be obtained.
 
         """
-        no_key = str2bool(self.env["ir.config_parameter"].sudo().get_param("shopfloor.lock.for_update.no_key"))
-        no_wait = str2bool(self.env["ir.config_parameter"].sudo().get_param("shopfloor.lock.for_update.no_wait"))
+        no_key = str2bool(
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("shopfloor.lock.for_update.no_key")
+        )
+        no_wait = str2bool(
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("shopfloor.lock.for_update.no_wait")
+        )
         for_update_str = " FOR NO KEY UPDATE " if no_key else " FOR UPDATE "
         query = "SELECT id FROM %s WHERE ID IN %%s " + for_update_str
         if skip_locked:
