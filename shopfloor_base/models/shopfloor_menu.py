@@ -23,7 +23,6 @@ class ShopfloorMenu(models.Model):
     )
     scenario_key = fields.Char(related="scenario_id.key")
     active = fields.Boolean(default=True)
-    jump_to_menu_id = fields.Many2one(comodel_name="shopfloor.menu")
 
     def _get_jumpto_menu(self, field_name):
         self.ensure_one()
