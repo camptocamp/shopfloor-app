@@ -3,6 +3,8 @@
 # Copyright 2026 Michael Tietz (MT Software) <mtietz@mt-software.de>
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
+import json
+
 from werkzeug.exceptions import BadRequest
 
 from odoo import exceptions
@@ -130,17 +132,16 @@ class BaseShopfloorService(AbstractComponent):
         return response
 
     def _response_for_jump_to_menu(self, menu, message=None):
-        # Get the data for the start state
         service = self.component(menu.scenario_id.key)
         service.work.menu = menu
-        jump_to_data = service._response_for_start()
+        jump_to_data = service._get_data_for_jump_to_menu()
         jump_to_state = jump_to_data["next_state"]
+        states_data = {jump_to_state: jump_to_data["data"][jump_to_state]}
         data = {
             "next_state": jump_to_state,
             "menu_id": menu.id,
-            "state_data": jump_to_data["data"][jump_to_state],
+            "states_data": json.dumps(states_data),
         }
-
         return self._response(
             next_state="jump_to_menu",
             data=data,
