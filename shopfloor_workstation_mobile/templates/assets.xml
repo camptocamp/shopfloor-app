@@ -10,11 +10,9 @@
         inherit_id="shopfloor_mobile_base.shopfloor_app_assets"
     >
         <script id="script_page_profile" position="after">
-            <script
-                id="script_page_workstation"
-                t-attf-src="/shopfloor_workstation_mobile/static/src/settings/workstation.esm.js?v=#{app_info.version}"
-                type="module"
-            />
+            <script id="script_page_workstation" type="module">
+                import "/shopfloor_workstation_mobile/static/src/settings/workstation.esm.js";
+            </script>
         </script>
     </template>
 </odoo>

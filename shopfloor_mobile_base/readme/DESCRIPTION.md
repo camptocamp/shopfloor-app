@@ -19,11 +19,15 @@ in the backend. Each scenario drives you through the work to do.
 
 - No Odoo JS is used, no assets machinery used.
 
-  Static assets are loaded straight, served by a specific controller.
-  This app is a Single Page App, hence resources are loaded only once.
+  Static assets are plain ES modules served straight from each module's
+  `static` folder. This app is a Single Page App, hence resources are
+  loaded only once.
 
-  The version of the module appended to the URL of each resources makes
-  sure it's not cached when the version changes.
+  An [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap)
+  generated server side appends a version (module version or content
+  hash) to the URL of each JS file, so that a file is downloaded again
+  only when it changes. The same map allows to replace any JS module with
+  your own. See "Assets" in the usage section.
 
 - When developing you can use a demo mode which allows to define
   interactive scenario with pure JS demo data, without interacting with

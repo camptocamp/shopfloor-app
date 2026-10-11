@@ -32,6 +32,8 @@ class ShopfloorMobileAppMixin:
         return {
             "app_info": app_info,
             "get_version": get_version,
+            "importmap": shopfloor_app._make_app_importmap(),
+            "static_url": shopfloor_app._get_app_static_url,
         }
 
     def _make_app_info(self, shopfloor_app, demo=False):
