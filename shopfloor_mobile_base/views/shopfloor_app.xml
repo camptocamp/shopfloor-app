@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <field name="short_name" position="after">
                 <field name="app_version" />
+                <field name="js_version_mode" groups="base.group_no_one" />
             </field>
         </field>
     </record>

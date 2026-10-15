@@ -29,10 +29,15 @@ class ShopfloorMobileAppMixin:
         # TODO: move this to shopfloor_app model and wrap everything
         # into `app_info` key. Then we simply dump to json here.
         app_info = self._make_app_info(shopfloor_app, demo=demo)
-        return {
+        values = {
             "app_info": app_info,
             "get_version": get_version,
+            # The import map is rendered from the app, see `app_shell_core`
+            "shopfloor_app": shopfloor_app,
+            # Versioned URLs for classic scripts and stylesheets
+            "static_url": shopfloor_app.get_app_static_url,
         }
+        return values
 
     def _make_app_info(self, shopfloor_app, demo=False):
         return shopfloor_app._make_app_info(demo=demo)

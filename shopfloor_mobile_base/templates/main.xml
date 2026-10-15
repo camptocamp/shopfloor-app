@@ -30,6 +30,10 @@
                 t-value="{'shopfloor_app_version': app_info.version}"
             />
             <t t-set="head">
+                <!-- Must come before any ES module, see `app_shell_core` -->
+                <t t-call="app_shell_core.importmap">
+                    <t t-set="importmap" t-value="shopfloor_app.make_app_importmap()" />
+                </t>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <script type="text/javascript">
           var shopfloor_app_info = <t t-out="json.dumps(app_info)" />;
