@@ -1,0 +1,1 @@
+odoo-addon-app_shell_core @ git+https://github.com/OCA/web-app-shell.git@refs/pull/10/head#subdirectory=app_shell_core
