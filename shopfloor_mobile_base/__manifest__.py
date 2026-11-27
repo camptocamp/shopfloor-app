@@ -7,7 +7,7 @@
     "summary": "Mobile frontend for WMS Shopfloor app",
     "version": "18.0.1.4.0",
     "development_status": "Beta",
-    "depends": ["shopfloor_base"],
+    "depends": ["shopfloor_base", "app_shell_core"],
     "author": "Camptocamp, BCIM, Akretion, Odoo Community Association (OCA)",
     "maintainers": ["simahawk"],
     "website": "https://github.com/OCA/shopfloor-app",

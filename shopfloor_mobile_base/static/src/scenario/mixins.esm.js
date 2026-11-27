@@ -511,8 +511,7 @@ export var ScenarioBaseMixin = {
                     if (typeof handler === "string") handler = state[handler];
                     const event_name =
                         self._global_state_key(self.state.key) + ":" + name;
-                    const existing = event_hub._events[event_name];
-                    if (!_.isEmpty(existing)) {
+                    if (event_hub.has_listeners(event_name)) {
                         event_hub.$off(event_name);
                     }
                     if (handler) {
