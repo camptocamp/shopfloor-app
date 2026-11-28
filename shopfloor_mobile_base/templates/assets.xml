@@ -18,54 +18,54 @@
       Do not use `src` for ES modules: the import map does not apply to it.
       Modules imported by other modules do not need a tag at all.
 
-    * classic scripts and stylesheets: use `static_url` to get a versioned URL:
+    * classic scripts and stylesheets: use `static_route` to get a versioned route:
 
-        <link t-att-href="static_url('/my_module/static/src/foo.css')" rel="stylesheet" />
+        <link t-att-href="static_route('/my_module/static/src/foo.css')" rel="stylesheet" />
     -->
     <template id="shopfloor_app_assets" name="Shopfloor app assets">
         <!-- Styles  -->
         <link
             id="link_css_gfonts_roboto"
-            t-att-href="static_url('/shopfloor_mobile_base/static/src/css/vendor/google-fonts-roboto.css')"
+            t-att-href="static_route('/shopfloor_mobile_base/static/src/css/vendor/google-fonts-roboto.css')"
             rel="stylesheet"
         />
         <link
             id="link_css_materialdesignicons"
-            t-att-href="static_url('/shopfloor_mobile_base/static/src/lib/materialdesign-icons/css/materialdesignicons.min.css')"
+            t-att-href="static_route('/shopfloor_mobile_base/static/src/lib/materialdesign-icons/css/materialdesignicons.min.css')"
             rel="stylesheet"
         />
         <link
             id="link_css_vuetify"
-            t-att-href="static_url('/shopfloor_mobile_base/static/src/lib/vuetify/vuetify.min.css')"
+            t-att-href="static_route('/shopfloor_mobile_base/static/src/lib/vuetify/vuetify.min.css')"
             rel="stylesheet"
         />
         <link
             id="link_css_main"
-            t-att-href="static_url('/shopfloor_mobile_base/static/src/css/main.css')"
+            t-att-href="static_route('/shopfloor_mobile_base/static/src/css/main.css')"
             rel="stylesheet"
         />
         <!-- External libs -->
         <script
             id="script_jquery"
-            t-att-src="static_url('/shopfloor_mobile_base/static/src/lib/jquery-3.4.1.slim.min.js')"
+            t-att-src="static_route('/shopfloor_mobile_base/static/src/lib/jquery-3.4.1.slim.min.js')"
         />
         <script
             id="script_lodash"
-            t-att-src="static_url('/shopfloor_mobile_base/static/src/lib/lodash.min.js')"
+            t-att-src="static_route('/shopfloor_mobile_base/static/src/lib/lodash.min.js')"
         />
         <script
             t-if="not debug"
             id="script_vue_min"
-            t-att-src="static_url('/shopfloor_mobile_base/static/src/lib/vue.min.js')"
+            t-att-src="static_route('/shopfloor_mobile_base/static/src/lib/vue.min.js')"
         />
         <script
             t-if="debug"
             id="script_vue"
-            t-att-src="static_url('/shopfloor_mobile_base/static/src/lib/vue.js')"
+            t-att-src="static_route('/shopfloor_mobile_base/static/src/lib/vue.js')"
         />
         <script
             id="script_vue_router"
-            t-att-src="static_url('/shopfloor_mobile_base/static/src/lib/vue-router.min.js')"
+            t-att-src="static_route('/shopfloor_mobile_base/static/src/lib/vue-router.min.js')"
         />
         <!-- https://yarkovaleksei.github.io/vue2-storage/en -->
         <script id="script_vue_storage" type="module">
@@ -73,16 +73,16 @@
         </script>
         <script
             id="script_vue_vuetify"
-            t-att-src="static_url('/shopfloor_mobile_base/static/src/lib/vuetify/vuetify.min.js')"
+            t-att-src="static_route('/shopfloor_mobile_base/static/src/lib/vuetify/vuetify.min.js')"
         />
         <script
             id="script_vue_i18n"
-            t-att-src="static_url('/shopfloor_mobile_base/static/src/lib/vue-i18n.min.js')"
+            t-att-src="static_route('/shopfloor_mobile_base/static/src/lib/vue-i18n.min.js')"
         />
         <!-- Custom services, utils, generic scripts -->
         <script
             id="script_fetch"
-            t-att-src="static_url('/shopfloor_mobile_base/static/src/fetch.js')"
+            t-att-src="static_route('/shopfloor_mobile_base/static/src/fetch.js')"
         />
         <script id="script_i18n_translation_en" type="module">
             import "/shopfloor_mobile_base/static/src/i18n/i18n.en.esm.js";
@@ -145,11 +145,11 @@
         <!-- These 2 are not ES modules -->
         <script
             id="script_component_user_confirmation"
-            t-att-src="static_url('/shopfloor_mobile_base/static/src/components/userConfirmation/userConfirmation.esm.js')"
+            t-att-src="static_route('/shopfloor_mobile_base/static/src/components/userConfirmation/userConfirmation.esm.js')"
         />
         <script
             id="script_component_user_information"
-            t-att-src="static_url('/shopfloor_mobile_base/static/src/components/userInformation/userInformation.esm.js')"
+            t-att-src="static_route('/shopfloor_mobile_base/static/src/components/userInformation/userInformation.esm.js')"
         />
         <script id="script_scenario_scan_anything" type="module">
             import "/shopfloor_mobile_base/static/src/scenario/scan_anything.esm.js";

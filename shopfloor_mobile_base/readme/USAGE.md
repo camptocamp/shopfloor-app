@@ -85,12 +85,12 @@ versioned. Files that are only imported by other files (registries,
 services, mixins, ...) do not need a tag at all.
 
 Classic scripts and stylesheets cannot use the import map: use the
-`static_url` helper to get a versioned URL:
+`static_route` helper to get a versioned route:
 
 ``` xml
 <link
     id="link_css_my_module"
-    t-att-href="static_url('/my_module/static/src/css/main.css')"
+    t-att-href="static_route('/my_module/static/src/css/main.css')"
     rel="stylesheet"
 />
 ```
